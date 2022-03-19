@@ -15,7 +15,7 @@ token = ""
 
 client = tweepy.Client(bearer_token=token) #initiation du api
 
-response = client.search_recent_tweets(query="iota -is:retweet", max_results=20, expansions=["author_id"], tweet_fields=["public_metrics","created_at"]) #aller chercher les tweets
+response = client.search_recent_tweets(query=" -is:retweet", max_results=20, expansions=["author_id"], tweet_fields=["public_metrics","created_at"]) #aller chercher les tweets
 
 
 
