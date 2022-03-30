@@ -4,7 +4,8 @@ DONE:Tweet list en database
 
 Trouver de bons Tweet
     Stocks
+    Créer une list de compte twitter possible a utiliser
 
 Sentiment d'un Tweet
-    Textblob (processing textual data)
+    Textblob (processing textual data, NLP)
     Sentiment: (-1,1)
