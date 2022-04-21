@@ -1,11 +1,12 @@
-DONE:Tweet list en database
-    Fichier csv
-    Texte, date du tweet, auteur, nb de likes, nb de reply et nb de retweet/mention
+# DONE:Tweet list en database
+#     Fichier csv
+#     Texte, date du tweet, auteur, nb de likes, nb de reply et nb de retweet/mention
 
-Trouver de bons Tweet
-    Stocks
-    Créer une list de compte twitter possible a utiliser
+# Trouver de bons Tweet
+#     Stocks
+#     Créer une list de compte twitter possible a utiliser
 
-Sentiment d'un Tweet
-    Textblob (processing textual data, NLP)
-    Sentiment: (-1,1)
+# Sentiment d'un Tweet
+#     Textblob (processing textual data, NLP)
+#     Sentiment: (-1,1)
+#     
