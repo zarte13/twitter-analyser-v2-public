@@ -12,7 +12,12 @@ import re
 
 
 
-
+def clean_tweet(tweet):
+        '''
+        Utility function to clean tweet text by removing links, special characters
+        using simple regex statements.
+        '''
+        return ' '.join(re.sub("(@[A-Za-z]+)|([^A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split())
 
 
 def search_tweets(query, count, token):
@@ -36,13 +41,14 @@ def search_tweets(query, count, token):
     text = []
 
 
+
     for tweet in tweets:
         likes.append(tweet.public_metrics["like_count"])
         retweets.append(tweet.public_metrics["retweet_count"]+tweet.public_metrics["quote_count"])
         replies.append(tweet.public_metrics["reply_count"])
         author_ids.append(tweet.author_id)
         creation_date.append(tweet.created_at)
-        text.append(tweet.text)
+        text.append(clean_tweet(tweet.text))
 
     response_user = client.get_users(ids=author_ids)
 
@@ -64,3 +70,5 @@ def search_tweets(query, count, token):
 
 
     df.to_csv(r'data.csv')
+
+search_tweets("apple", 10, "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j")
