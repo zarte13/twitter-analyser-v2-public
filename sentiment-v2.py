@@ -3,11 +3,11 @@ import time
 from textblob import TextBlob, WordList
 import pandas as pd
 import numpy as np
-import tweets
-
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 
+
+import tweets
 tweets.search_tweets("economy crash", 100, "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j")
 
 # import data from csv file called 'data.csv' and store it in a dataframe
@@ -55,6 +55,9 @@ for index, row in df.iterrows():
            
 print(wordlistz)
 print(df)
+
+df.to_csv(r'tweetsentiment.csv')
+wordlistz.to_csv(r'wordsentiment.csv')
     
     
     # loop through each word in the tweet
