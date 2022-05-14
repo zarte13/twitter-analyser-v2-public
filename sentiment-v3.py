@@ -13,8 +13,8 @@ import urllib.request
 import csv
 
 
-#import tweets
-#tweets.search_tweets("economy crash", 10, "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j")
+import tweets
+tweets.search_tweets("economy crash", 10, "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j")
 
 def preprocess(text):
     new_text = []
@@ -43,6 +43,7 @@ labels = [row[1] for row in csvreader if len(row) > 1]
 
 model = AutoModelForSequenceClassification.from_pretrained(MODEL)
 model.save_pretrained(MODEL)
+tokenizer.save_pretrained(MODEL)
 
 # import data from csv file called 'data.csv' and store it in a dataframe
 df = pd.read_csv('data.csv')
@@ -70,6 +71,12 @@ def stats_no_neutral(arr):
         return -arr[0]
     elif arr[0] < arr[2]:
         return arr[2]
+
+def stats_simple(arr):
+    if arr[0] > arr[2]:
+        return -1
+    elif arr[0] < arr[2]:
+        return 1
 # import the tweet.py file
 
 wordlistz = pd.DataFrame()
@@ -97,7 +104,8 @@ for index, row in df.iterrows():
         print(scores)
         print(stats(scores))
         df.at[index, 'sentiment'] = stats(scores)
-        
+        df.at[index, 'simple_sentiment'] = stats_simple(scores)
+
 
         
         # for i in range(scores.shape[0]):
@@ -125,15 +133,18 @@ for index, row in df.iterrows():
 
 
 
-        
+x = 0   
+dx = 0   
             
-        
+for d in df.columns["sentiment_simple"]:
+    x += d
+    dx += 1
 
            
            
 
 print(wordlistz)
-print(df)
+print(df[['text', 'sentiment']])
 
 df.to_csv(r'v3tweetsentiment.csv')
 wordlistz.to_csv(r'v3wordsentiment.csv')
