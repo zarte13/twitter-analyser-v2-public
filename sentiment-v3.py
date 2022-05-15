@@ -13,8 +13,12 @@ import urllib.request
 import csv
 
 
-#import tweets
-#tweets.search_tweets("economy crash", 10, "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j")
+import multiple
+
+token = "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j"
+multiple.search_multiple("gold",token,"2022-05-08", "2022-05-14")
+
+
 
 def preprocess(text):
     new_text = []

@@ -20,13 +20,13 @@ def clean_tweet(tweet):
         return ' '.join(re.sub("(@[A-Za-z]+)|([^A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split())
 
 
-def search_tweets(query, count, token):
+def search_tweets(query, count, token, startdate, enddate):
 
 
 
     client = tweepy.Client(bearer_token=token) #initiation du api
 
-    response = client.search_recent_tweets(query="%s -is:retweet"%query, max_results=count, expansions=["author_id"], tweet_fields=["public_metrics","created_at"]) #aller chercher les tweets
+    response = client.search_recent_tweets(query="%s -is:retweet"%query,end_time=enddate,start_time=startdate, max_results=count, expansions=["author_id"], tweet_fields=["public_metrics","created_at"]) #aller chercher les tweets
 
 
 
@@ -71,4 +71,3 @@ def search_tweets(query, count, token):
 
     df.to_csv(r'data.csv')
 
-search_tweets("apple", 10, "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j")
