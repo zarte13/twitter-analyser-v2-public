@@ -49,8 +49,8 @@ def search_multiple(query,token, start, end):
             df1 = fourhourdata
         df1.to_csv(r'datafull.csv')
 
-token = "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j"
-search_multiple("gold",token,"2022-05-09 00:00:00", "2022-05-15")
+# token = ""
+# search_multiple("gold",token,"2022-05-09 00:00:00", "2022-05-15")
 
 
 

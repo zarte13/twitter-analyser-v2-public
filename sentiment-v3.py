@@ -15,7 +15,7 @@ import csv
 
 import multiple
 
-token = "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j"
+token = ""
 multiple.search_multiple("gold",token,"2022-05-09 00:00:00", "2022-05-15")
 
 
@@ -30,7 +30,7 @@ def preprocess(text):
         new_text.append(t)
     return " ".join(new_text)
 
-
+df = pd.read_csv("datafull.csv")
 
 task='sentiment'
 MODEL = f"cardiffnlp/twitter-roberta-base-{task}"
