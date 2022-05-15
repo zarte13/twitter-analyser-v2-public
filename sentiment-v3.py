@@ -16,7 +16,7 @@ import csv
 import multiple
 
 token = "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j"
-multiple.search_multiple("gold",token,"2022-05-08", "2022-05-14")
+multiple.search_multiple("gold",token,"2022-05-09 00:00:00", "2022-05-15")
 
 
 
@@ -45,12 +45,15 @@ with urllib.request.urlopen(mapping_link) as f:
     csvreader = csv.reader(html, delimiter='\t')
 labels = [row[1] for row in csvreader if len(row) > 1]
 
+# PT
 model = AutoModelForSequenceClassification.from_pretrained(MODEL)
 model.save_pretrained(MODEL)
 tokenizer.save_pretrained(MODEL)
 
 # import data from csv file called 'data.csv' and store it in a dataframe
-df = pd.read_csv('data.csv')
+
+for i in range():
+    print(1)
 
 ps = PorterStemmer()
 # print dataframe df
@@ -83,7 +86,7 @@ def stats_simple(arr):
         return 1
 # import the tweet.py file
 
-wordlistz = pd.DataFrame()
+#wordlistz = pd.DataFrame()
 
 # loop through each tweet to analyse the text in the text column to find the sentiment
 for index, row in df.iterrows():
@@ -117,19 +120,24 @@ for index, row in df.iterrows():
         #     s = scores[ranking[i]]
         #     
         #     print(f"{i+1}) {l} {np.round(float(s), 4)}")
-        words = word_tokenize(row['text'])
+
+
+        # words = word_tokenize(row['text']) #split tweets into words
         
-        for word in words:
-            analysis = TextBlob(word)
+        # for word in words: #analyse each word
+        #     analysis = TextBlob(word)
             
-            text = ps.stem(word)
-            encoded_input = tokenizer(text, return_tensors='pt')
-            output = model(**encoded_input)
-            scores = output[0][0].detach().numpy()
-            scores = softmax(scores)
-            ranking = np.argsort(scores)
-            ranking = ranking[::-1]
-            wordlistz.at[text, 'sentiment'] = stats_no_neutral(scores)
+        #     text = ps.stem(word)
+        #     encoded_input = tokenizer(text, return_tensors='pt')
+        #     output = model(**encoded_input)
+        #     scores = output[0][0].detach().numpy()
+        #     scores = softmax(scores)
+        #     ranking = np.argsort(scores)
+        #     ranking = ranking[::-1]
+        #     wordlistz.at[text, 'sentiment'] = stats_no_neutral(scores)
+
+
+
             # for i in range(scores.shape[0]):
             #     l = labels[ranking[i]]
             #     s = scores[ranking[i]]
@@ -137,21 +145,25 @@ for index, row in df.iterrows():
 
 
 
-x = 0   
-dx = 0   
+
+
+           
+           
+# x = 0   
+# dx = 0   
             
-for d in df.columns["sentiment_simple"]:
-    x += d
-    dx += 1
+# for d in df.columns["sentiment_simple"]:
+#     x += d
+#     dx += 1
+# print(wordlistz) #no more words
+# wordlistz.to_csv(r'v3wordsentiment.csv')
 
-           
-           
 
-print(wordlistz)
+
 print(df[['text', 'sentiment']])
 
 df.to_csv(r'v3tweetsentiment.csv')
-wordlistz.to_csv(r'v3wordsentiment.csv')
+
 
     
     
