@@ -4,7 +4,7 @@
 
 <h2>Description: </h2>
 <ul>
-  <li>Tweets is the function with the twitter API v2</li>
+  <li>Tweets is the function to interact with the twitter API v2</li>
   <li>Multiple is the function that accumulate data over a given timeframe (max 7 days, twitter limitation for none academic account</li>
   <li>Sentiment V1 is OBSELETE, uses old version and twitter API v1</li>
   <li>Sentiment V2 is made with textblob and simple sentiment analysis</li>
