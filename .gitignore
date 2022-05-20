@@ -9,3 +9,14 @@ date-day-4.csv
 tweetsentiment.csv
 wordsentiment.csv
 __pycache__/multiple.cpython-310.pyc
+cardiffnlp/twitter-roberta-base-sentiment/config.json
+cardiffnlp/twitter-roberta-base-sentiment/merges.txt
+cardiffnlp/twitter-roberta-base-sentiment/pytorch_model.bin
+cardiffnlp/twitter-roberta-base-sentiment/special_tokens_map.json
+cardiffnlp/twitter-roberta-base-sentiment/tokenizer_config.json
+cardiffnlp/twitter-roberta-base-sentiment/tokenizer.json
+cardiffnlp/twitter-roberta-base-sentiment/vocab.json
+daytweetsoutput/v3tweetsentiment-0.csv
+daytweetsoutput/v3tweetsentiment-1.csv
+daytweetsoutput/v3tweetsentiment-2.csv
+

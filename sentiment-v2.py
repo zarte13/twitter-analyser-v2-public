@@ -8,7 +8,7 @@ from nltk.stem import PorterStemmer
 
 
 import multiple
-#multiple.search_multiple("economy crash", "AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAAMK2lMWsNnCylxLEs%2BofhwxOMXDw%3D8cUv4aDoALTRfp5n8XUpp4QBySI7nQVR1S3BVsEOPHneAMgi1j", "2022-05-14", "2022-05-15" )
+#multiple.search_multiple("economy crash", "", "2022-05-14", "2022-05-15" )
 
 # import data from csv file called 'data.csv' and store it in a dataframe
 df = pd.read_csv('data.csv')
