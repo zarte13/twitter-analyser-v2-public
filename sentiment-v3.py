@@ -16,8 +16,8 @@ import os, os.path
 
 import multiple
 
-token = r""
-#multiple.search_multiple("gold",token,"2022-05-14 00:00:00", "2022-05-19")
+token = r"AAAAAAAAAAAAAAAAAAAAAF53aAEAAAAADHcVLDUKvs%2F2spP29RqfkOfU3fg%3DzbuKiKaXXKJ5heJdctTKmGs409UMj9VUdD4A4Bmu4s9Ghjn5Wd"
+multiple.search_multiple("gold",token,"2022-05-14 00:00:00", "2022-05-19")
 
 
 
@@ -86,7 +86,7 @@ DIR = './daytweets'
 nfiles = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
 
 for number in range(nfiles):
-    df = pd.read_csv(f'daytweets/date-day-{number}.csv', index=False)
+    df = pd.read_csv(f'daytweets/date-day-{number}.csv')
 
     ps = PorterStemmer()
     # print dataframe df
@@ -170,7 +170,7 @@ for number in range(nfiles):
 
     print(df[['text', 'sentiment']])
     df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
-    df.to_csv(f'daytweetsoutput/v3tweetsentiment-{number}.csv')
+    df.to_csv(f'daytweetsoutput/v3tweetsentiment-{number}.csv', index=False)
 
 
     
